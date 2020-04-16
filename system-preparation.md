@@ -65,3 +65,10 @@ And so with older SMBIOSes(one's not listed above), we need to make sure their p
 | TableSignature | Data | <> |
 
 And for those worried about ACPI patches applying to other OSes, these will only be temporary and will be removed once we've mapped our ports.
+
+# Parting ways
+
+But now we must part into 2 sections, depending on which hardware you have:
+
+* [Intel USB Mapping](/intel-mapping/intel.md)
+* [AMD and 3rd Party USB Mapping](/amd-mapping/amd.md)

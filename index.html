@@ -1,0 +1,423 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>USB Mapping · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-medium-zoom/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <link rel="stylesheet" href="styles/website.css">
+        
+    
+
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="system-preparation.html" />
+    
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"dortania","repo":"USB-Map-Guide","type":"star","size":"large"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter active" data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    USB Mapping
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="system-preparation.html">
+            
+                <a href="system-preparation.html">
+            
+                    
+                    System Preparation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Intel Mapping</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="intel-mapping/intel.html">
+            
+                <a href="intel-mapping/intel.html">
+            
+                    
+                    Intel USB Mapping
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">AMD/3rd Party Mapping</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="amd-mapping/amd.html">
+            
+                <a href="amd-mapping/amd.html">
+            
+                    
+                    AMD and 3rd Party USB Mapping
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Miscellaneous Fixes</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="misc/">
+            
+                <a href="misc/">
+            
+                    
+                    Miscellaneous Fixes
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="misc/power.html">
+            
+                <a href="misc/power.html">
+            
+                    
+                    Fixing USB Power
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="misc/shutdown.html">
+            
+                <a href="misc/shutdown.html">
+            
+                    
+                    Fixing Shutdown/Restart
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="misc/instant-wake.html">
+            
+                <a href="misc/instant-wake.html">
+            
+                    
+                    GPRW/UPRW/LANC Instant Wake Patch
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="misc/keyboard.html">
+            
+                <a href="misc/keyboard.html">
+            
+                    
+                    Keyboard Wake Issues
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >USB Mapping</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <blockquote>
+<p><em>Last modified: Thu Apr 16 2020 19:15:43 GMT+0000 (Coordinated Universal Time)</em></p>
+</blockquote>
+<h1 id="why-should-you-usb-map"><a name="why-should-you-usb-map" class="plugin-anchor" href="#why-should-you-usb-map"><i class="fa fa-link" aria-hidden="true"></i></a>Why should you USB map?</h1>
+<p>So the process of USB mapping is defining your ports to macOS and telling it what kind they are, the reasons we want to do this are:</p>
+<ul>
+<li>macOS is very bad at guessing what kind of ports you have</li>
+<li>Some ports may run below their rated speed(3.1 ports running at 2.0)</li>
+<li>Some ports may outright not work</li>
+<li>Certain services like Handoff may not work correctly</li>
+<li>Sleep may break</li>
+<li>Broken Hot-Plug</li>
+<li>Even data corruption from <code>XhciPortLimit</code></li>
+</ul>
+<p>So now that you know why you should USB map, we can now talk about technical info of USB mapping. This is a section you cannot skip, otherwise all info below will seem like a very broken Russian translation written by a very drunk slav.</p>
+<p>So with USB, we need to understand not all ports are the same and that some ports are actually hiding other ports within them! What I mean by this is the following:</p>
+<ul>
+<li>A USB 3.0 port is actually seen as 2 ports to macOS: a USB 2.0 <strong>and</strong> USB 3.0</li>
+<li>This is also how USB can keep its backwards compatibility, as all USB 3.0 devices <strong>must</strong> support USB 2.0</li>
+</ul>
+<p>Now lets look at a diagram of a USB port to better understand this:</p>
+<p><img src="images/post-install/usb-md/usb-3.png" alt="Image from usb3.com"></p>
+<p>As you can see, the bottom 4 ports are dedicated to USB 2.0 and when the extra 5 ports above are recognized the device will switch to a USB 3.0 mode.</p>
+<p>Now with the basic understanding out of the way, we now have to talk about the dreadful 15 port limit.</p>
+<h2 id="macos-and-the-15-port-limit"><a name="macos-and-the-15-port-limit" class="plugin-anchor" href="#macos-and-the-15-port-limit"><i class="fa fa-link" aria-hidden="true"></i></a>macOS and the 15 Port Limit</h2>
+<p>Now let me take you back in time to the late 2015&apos;s and the release of OS X 10.11, El Capitan. This was an update that established much of what both blesses us and pains us in the community like System Integrity Protection and the 15 port limit.</p>
+<p>What the 15 port limit is in macOS(then called OS X) is a strict limit of only 15 possible ports per controller, this becomes an issue when we look at the chipset ports included on your motherboard:</p>
+<ul>
+<li>Z170 and newer Chipsets: 26 Ports in total</li>
+</ul>
+<p>And you may not even have 26 actual ports, but they&apos;re still declared in your ACPI tables causing issues as macOS can&apos;t tell the difference between a real port and one your firmware writers forgot to remove.</p>
+<blockquote>
+<p>But why did Apple choose 15 ports as the limit?</p>
+</blockquote>
+<p>Well this gets into a fun subset of computers, the hexadecimal counting system! How this differs from our decimal system is that there are a total of 15 values with the last one being <code>0xF</code>. This meant it was just cleaner to stop at 15 than to say expand the port limit to 255(0xFF), and in Apple&apos;s eyes it made little sense to have anything above 15 ports as no Macs they supported went over this limit. And if a Mac Pro user added a USB expansion card, it would get it&apos;s own 15 port limit.</p>
+<p>And now when we take into account the quirk <code>XhciPortLimit</code>, you can see <em>why</em> data corruption can happen. As we&apos;re pushing past the 0xF limit and going into someone else&apos;s space. So avoid this quirk when possible.</p>
+<h2 id="now-with-the-backstory-done-lets-head-to-system-preparations"><a name="now-with-the-backstory-done-lets-head-to-system-preparations" class="plugin-anchor" href="#now-with-the-backstory-done-lets-head-to-system-preparations"><i class="fa fa-link" aria-hidden="true"></i></a>Now with the backstory done, lets head to <a href="system-preparation.html">System Preparations</a></h2>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="system-preparation.html" class="navigation navigation-next navigation-unique" aria-label="Next page: System Preparation">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"USB Mapping","level":"1.1","depth":1,"next":{"title":"System Preparation","level":"1.2","depth":1,"path":"system-preparation.md","ref":"system-preparation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","-lunr","-search","search-plus","addcssjs","favicon-plus","anchors","github-buttons","last-modified","medium-zoom"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"last-modified":{},"output":"_book","intopic-toc":{"label":"Navigation"},"addcssjs":{"css":[],"js":[]},"medium-zoom":{},"fontsettings":{"theme":"night","family":"sans","size":2},"favicon-plus":{"appleTouchIconPrecomposed152":"","favicon":"","output":"_book"},"highlight":{},"github-edit":{"repo":"dortania/USB-Map-Guide","branch":"master"},"favicon":"/icons/favicon.ico","appleTouchIconPrecomposed152":"/icons/appleTouchIconPrecomposed152.png","github-buttons":{"buttons":[{"user":"dortania","repo":"USB-Map-Guide","type":"star","size":"large"}]},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"anchors":{},"search-plus":{}},"theme":"default","medium-zoom":{"margin":24,"background":"#363b40","scrollOffset":0},"pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sharing":{"google":false,"facebook":false,"twitter":false,"weibo":false,"all":false}},"gitbook":"*"},"file":{"path":"README.md","mtime":"2020-04-16T19:15:43.267Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-16T19:16:36.021Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-medium-zoom/medium-zoom.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-medium-zoom/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    
+
+    </body>
+</html>
+

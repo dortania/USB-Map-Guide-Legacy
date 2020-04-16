@@ -1,0 +1,598 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>System Preparation · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-medium-zoom/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <link rel="stylesheet" href="styles/website.css">
+        
+    
+
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="intel-mapping/intel.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"dortania","repo":"USB-Map-Guide","type":"star","size":"large"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    USB Mapping
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2" data-path="system-preparation.html">
+            
+                <a href="system-preparation.html">
+            
+                    
+                    System Preparation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Intel Mapping</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="intel-mapping/intel.html">
+            
+                <a href="intel-mapping/intel.html">
+            
+                    
+                    Intel USB Mapping
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">AMD/3rd Party Mapping</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="amd-mapping/amd.html">
+            
+                <a href="amd-mapping/amd.html">
+            
+                    
+                    AMD and 3rd Party USB Mapping
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Miscellaneous Fixes</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="misc/">
+            
+                <a href="misc/">
+            
+                    
+                    Miscellaneous Fixes
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="misc/power.html">
+            
+                <a href="misc/power.html">
+            
+                    
+                    Fixing USB Power
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="misc/shutdown.html">
+            
+                <a href="misc/shutdown.html">
+            
+                    
+                    Fixing Shutdown/Restart
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="misc/instant-wake.html">
+            
+                <a href="misc/instant-wake.html">
+            
+                    
+                    GPRW/UPRW/LANC Instant Wake Patch
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="misc/keyboard.html">
+            
+                <a href="misc/keyboard.html">
+            
+                    
+                    Keyboard Wake Issues
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >System Preparation</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <blockquote>
+<p><em>Last modified: Thu Apr 16 2020 19:15:43 GMT+0000 (Coordinated Universal Time)</em></p>
+</blockquote>
+<h1 id="system-preparation"><a name="system-preparation" class="plugin-anchor" href="#system-preparation"><i class="fa fa-link" aria-hidden="true"></i></a>System Preparation</h1>
+<p>So before we can USB map, we need to set a couple things:</p>
+<ul>
+<li><a href="https://bitbucket.org/RehabMan/os-x-usb-inject-all/downloads/" target="_blank">USBInjectAll</a> under both EFI/OC/Kexts and config.plist -&gt; Kernel -&gt; Add<ul>
+<li>We need this kext to make sure any ports not defined in ACPI will still show up in macOS, note that this <em>shouldn&apos;t</em> be required on Skylake and newer as the USB ports are defined within ACPI</li>
+<li>Note that this <strong>does not work on AMD</strong></li>
+</ul>
+</li>
+<li>config.plist -&gt; Kernel -&gt; Quirks -&gt; XhciPortLimit -&gt; True<ul>
+<li>So we can temporally get around the 15 port limit to map our ports</li>
+</ul>
+</li>
+<li>config.plist -&gt; ACPI -&gt; Patch -&gt; EHCI and XHCI ACPI renames</li>
+</ul>
+<p>The reason we need these ACPI renames are due to conflicting with Apple&apos;s own USB map, fun fact even Apple has to USB map as well! You can actually find Apple&apos;s USB map within IOUSBHostFamily.kext -&gt; PlugIns -&gt; AppleUSBHostPlatformProperties.kext, though newer Macs actually port map with their ACPI tables instead. </p>
+<p>SMBIOSes that do not need the ACPI renames:</p>
+<ul>
+<li>iMac18,x and newer</li>
+<li>MacPro7,1 and newer</li>
+<li>MacMini8,1 and newer</li>
+<li>MacBook9,x  and newer</li>
+<li>MacBookAir8,x  and newer</li>
+<li>MacBookPro13,x and newer</li>
+</ul>
+<p>And so with older SMBIOSes(one&apos;s not listed above), we need to make sure their port map does not attach while we&apos;re trying to USB map ourselves. Else some ports may disappear, and please check you do have these ports in your ACPI tables <strong>before</strong> applying these patches as we don&apos;t want to patch the wrong devices. If you do find your USB controller needs renaming, write down their original names before the rename as this will make USB mapping down the road a bit easier:</p>
+<ul>
+<li><strong>XHC1 to SHCI</strong>: Needed for Skylake and older SMBIOS</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Key</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Comment</td>
+<td style="text-align:left">String</td>
+<td style="text-align:left">XHC1 to SHCI</td>
+</tr>
+<tr>
+<td style="text-align:left">Count</td>
+<td style="text-align:left">Number</td>
+<td style="text-align:left"><0></0></td>
+</tr>
+<tr>
+<td style="text-align:left">Enabled</td>
+<td style="text-align:left">Boolean</td>
+<td style="text-align:left">YES</td>
+</tr>
+<tr>
+<td style="text-align:left">Find</td>
+<td style="text-align:left">Data</td>
+<td style="text-align:left"><58484331></58484331></td>
+</tr>
+<tr>
+<td style="text-align:left">Limit</td>
+<td style="text-align:left">Number</td>
+<td style="text-align:left"><0></0></td>
+</tr>
+<tr>
+<td style="text-align:left">Replace</td>
+<td style="text-align:left">Data</td>
+<td style="text-align:left"><53484349></53484349></td>
+</tr>
+<tr>
+<td style="text-align:left">Skip</td>
+<td style="text-align:left">Number</td>
+<td style="text-align:left"><0></0></td>
+</tr>
+<tr>
+<td style="text-align:left">Tablelength</td>
+<td style="text-align:left">Number</td>
+<td style="text-align:left"><0></0></td>
+</tr>
+<tr>
+<td style="text-align:left">TableSignature</td>
+<td style="text-align:left">Data</td>
+<td style="text-align:left">&lt;&gt;</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>EHC1 to EH01</strong>: Needed for Broadwell and older SMBIOS</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Key</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Comment</td>
+<td style="text-align:left">String</td>
+<td style="text-align:left">EHC1 to EH01</td>
+</tr>
+<tr>
+<td style="text-align:left">Count</td>
+<td style="text-align:left">Number</td>
+<td style="text-align:left"><0></0></td>
+</tr>
+<tr>
+<td style="text-align:left">Enabled</td>
+<td style="text-align:left">Boolean</td>
+<td style="text-align:left">YES</td>
+</tr>
+<tr>
+<td style="text-align:left">Find</td>
+<td style="text-align:left">Data</td>
+<td style="text-align:left"><45484331></45484331></td>
+</tr>
+<tr>
+<td style="text-align:left">Limit</td>
+<td style="text-align:left">Number</td>
+<td style="text-align:left"><0></0></td>
+</tr>
+<tr>
+<td style="text-align:left">Replace</td>
+<td style="text-align:left">Data</td>
+<td style="text-align:left"><45483031></45483031></td>
+</tr>
+<tr>
+<td style="text-align:left">Skip</td>
+<td style="text-align:left">Number</td>
+<td style="text-align:left"><0></0></td>
+</tr>
+<tr>
+<td style="text-align:left">Tablelength</td>
+<td style="text-align:left">Number</td>
+<td style="text-align:left"><0></0></td>
+</tr>
+<tr>
+<td style="text-align:left">TableSignature</td>
+<td style="text-align:left">Data</td>
+<td style="text-align:left">&lt;&gt;</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>EHC2 to EH02</strong>: Needed for Broadwell and older SMBIOS</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Key</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Comment</td>
+<td style="text-align:left">String</td>
+<td style="text-align:left">EHC2 to EH01</td>
+</tr>
+<tr>
+<td style="text-align:left">Count</td>
+<td style="text-align:left">Number</td>
+<td style="text-align:left"><0></0></td>
+</tr>
+<tr>
+<td style="text-align:left">Enabled</td>
+<td style="text-align:left">Boolean</td>
+<td style="text-align:left">YES</td>
+</tr>
+<tr>
+<td style="text-align:left">Find</td>
+<td style="text-align:left">Data</td>
+<td style="text-align:left"><45484332></45484332></td>
+</tr>
+<tr>
+<td style="text-align:left">Limit</td>
+<td style="text-align:left">Number</td>
+<td style="text-align:left"><0></0></td>
+</tr>
+<tr>
+<td style="text-align:left">Replace</td>
+<td style="text-align:left">Data</td>
+<td style="text-align:left"><45483032></45483032></td>
+</tr>
+<tr>
+<td style="text-align:left">Skip</td>
+<td style="text-align:left">Number</td>
+<td style="text-align:left"><0></0></td>
+</tr>
+<tr>
+<td style="text-align:left">Tablelength</td>
+<td style="text-align:left">Number</td>
+<td style="text-align:left"><0></0></td>
+</tr>
+<tr>
+<td style="text-align:left">TableSignature</td>
+<td style="text-align:left">Data</td>
+<td style="text-align:left">&lt;&gt;</td>
+</tr>
+</tbody>
+</table>
+<p>And for those worried about ACPI patches applying to other OSes, these will only be temporary and will be removed once we&apos;ve mapped our ports.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: USB Mapping">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="intel-mapping/intel.html" class="navigation navigation-next " aria-label="Next page: Intel USB Mapping">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"System Preparation","level":"1.2","depth":1,"next":{"title":"Intel USB Mapping","level":"2.1","depth":1,"path":"intel-mapping/intel.md","ref":"intel-mapping/intel.md","articles":[]},"previous":{"title":"USB Mapping","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","-lunr","-search","search-plus","addcssjs","favicon-plus","anchors","github-buttons","last-modified","medium-zoom"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"last-modified":{},"output":"_book","intopic-toc":{"label":"Navigation"},"addcssjs":{"css":[],"js":[]},"medium-zoom":{},"fontsettings":{"theme":"night","family":"sans","size":2},"favicon-plus":{"appleTouchIconPrecomposed152":"","favicon":"","output":"_book"},"highlight":{},"github-edit":{"repo":"dortania/USB-Map-Guide","branch":"master"},"favicon":"/icons/favicon.ico","appleTouchIconPrecomposed152":"/icons/appleTouchIconPrecomposed152.png","github-buttons":{"buttons":[{"user":"dortania","repo":"USB-Map-Guide","type":"star","size":"large"}]},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"anchors":{},"search-plus":{}},"theme":"default","medium-zoom":{"margin":24,"background":"#363b40","scrollOffset":0},"pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sharing":{"google":false,"facebook":false,"twitter":false,"weibo":false,"all":false}},"gitbook":"*"},"file":{"path":"system-preparation.md","mtime":"2020-04-16T19:15:43.295Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-16T19:16:36.021Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-medium-zoom/medium-zoom.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-medium-zoom/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,456 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>AMD and 3rd Party USB Mapping · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-medium-zoom/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../misc/" />
+    
+    
+    <link rel="prev" href="../intel-mapping/intel.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"dortania","repo":"USB-Map-Guide","type":"star","size":"large"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    USB Mapping
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../system-preparation.html">
+            
+                <a href="../system-preparation.html">
+            
+                    
+                    System Preparation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Intel Mapping</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../intel-mapping/intel.html">
+            
+                <a href="../intel-mapping/intel.html">
+            
+                    
+                    Intel USB Mapping
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">AMD/3rd Party Mapping</li>
+        
+        
+    
+        <li class="chapter active" data-level="3.1" data-path="amd.html">
+            
+                <a href="amd.html">
+            
+                    
+                    AMD and 3rd Party USB Mapping
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Miscellaneous Fixes</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../misc/">
+            
+                <a href="../misc/">
+            
+                    
+                    Miscellaneous Fixes
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../misc/power.html">
+            
+                <a href="../misc/power.html">
+            
+                    
+                    Fixing USB Power
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../misc/shutdown.html">
+            
+                <a href="../misc/shutdown.html">
+            
+                    
+                    Fixing Shutdown/Restart
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="../misc/instant-wake.html">
+            
+                <a href="../misc/instant-wake.html">
+            
+                    
+                    GPRW/UPRW/LANC Instant Wake Patch
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="../misc/keyboard.html">
+            
+                <a href="../misc/keyboard.html">
+            
+                    
+                    Keyboard Wake Issues
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >AMD and 3rd Party USB Mapping</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <blockquote>
+<p><em>Last modified: Thu Apr 16 2020 19:15:43 GMT+0000 (Coordinated Universal Time)</em></p>
+</blockquote>
+<h1 id="usb-mapping"><a name="usb-mapping" class="plugin-anchor" href="#usb-mapping"><i class="fa fa-link" aria-hidden="true"></i></a>USB Mapping</h1>
+<p>So with the prerequisites out of the way, we can finally get to the meat of this guide. And now we get to finally read one of my favorite book before I go to bed each night: <a href="https://uefi.org/sites/default/files/resources/ACPI_6_3_final_Jan30.pdf" target="_blank">The Advanced Configuration and Power Interface (ACPI) Specification!</a> </p>
+<p>Now if you haven&apos;t read through this before(which I highly recommend you do, it&apos;s a thrilling tale), I&apos;ll point you to the meat of the USB situation:</p>
+<ul>
+<li>Section 9.14: _UPC (USB Port Capabilities)</li>
+</ul>
+<p>Here we&apos;re greeted with all the possible USB ports in ACPI:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Info</th>
+<th style="text-align:left">Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">0</td>
+<td style="text-align:left">USB 2.0 Type-A connector</td>
+<td style="text-align:left">This is what macOS will default all ports to when no map is present</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left">USB 3.0 Type-A connector</td>
+<td style="text-align:left">3.0, 3.1 and 3.2 ports share the same Type</td>
+</tr>
+<tr>
+<td style="text-align:left">8</td>
+<td style="text-align:left">Type C connector - USB 2.0-only</td>
+<td style="text-align:left">Mainly seen in phones</td>
+</tr>
+<tr>
+<td style="text-align:left">9</td>
+<td style="text-align:left">Type C connector - USB 2.0 and USB 3.0 with Switch</td>
+<td style="text-align:left">Flipping the device <strong>does not</strong> change the ACPI port</td>
+</tr>
+<tr>
+<td style="text-align:left">10</td>
+<td style="text-align:left">Type C connector - USB 2.0 and USB 3.0 without Switch</td>
+<td style="text-align:left">Flipping the device <strong>does</strong> change the ACPI port. generally seen on 3.1/2 motherboard headers</td>
+</tr>
+<tr>
+<td style="text-align:left">255</td>
+<td style="text-align:left">Proprietary connector</td>
+<td style="text-align:left">For Internal USB ports like Bluetooth</td>
+</tr>
+</tbody>
+</table>
+<h2 id="amd-and-3rd-party-usb-mapping"><a name="amd-and-3rd-party-usb-mapping" class="plugin-anchor" href="#amd-and-3rd-party-usb-mapping"><i class="fa fa-link" aria-hidden="true"></i></a>AMD and 3rd Party USB Mapping</h2>
+<p>To be written, for now see the  <a href="https://github.com/dortania/OpenCore-Desktop-Guide/blob/master/AMD/AMD-USB-map.md" target="_blank">AMD-USB-map.md</a> for the time being.</p>
+<p>For all I care, AMD hackintoshes don&apos;t exist. Please don&apos;t make me look at another AMD DSDT please, just buy Intel</p>
+<p>To do:</p>
+<ul>
+<li>Getting your DSDT</li>
+<li>Creating the map</li>
+<li>Port mapping on screwed up DSDTs</li>
+<li>Port mapping when you have multiple of the same controller</li>
+</ul>
+<h4 id="cry-a-bit"><a name="cry-a-bit" class="plugin-anchor" href="#cry-a-bit"><i class="fa fa-link" aria-hidden="true"></i></a>Cry a bit</h4>
+<h4 id="cry-some-more"><a name="cry-some-more" class="plugin-anchor" href="#cry-some-more"><i class="fa fa-link" aria-hidden="true"></i></a>Cry some more</h4>
+<h4 id="buy-some-intel-hardware"><a name="buy-some-intel-hardware" class="plugin-anchor" href="#buy-some-intel-hardware"><i class="fa fa-link" aria-hidden="true"></i></a>Buy some Intel hardware</h4>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../intel-mapping/intel.html" class="navigation navigation-prev " aria-label="Previous page: Intel USB Mapping">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../misc/" class="navigation navigation-next " aria-label="Next page: Miscellaneous Fixes">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"AMD and 3rd Party USB Mapping","level":"3.1","depth":1,"next":{"title":"Miscellaneous Fixes","level":"4.1","depth":1,"path":"misc/README.md","ref":"misc/README.md","articles":[{"title":"Fixing USB Power","level":"4.1.1","depth":2,"path":"misc/power.md","ref":"misc/power.md","articles":[]},{"title":"Fixing Shutdown/Restart","level":"4.1.2","depth":2,"path":"misc/shutdown.md","ref":"misc/shutdown.md","articles":[]},{"title":"GPRW/UPRW/LANC Instant Wake Patch","level":"4.1.3","depth":2,"path":"misc/instant-wake.md","ref":"misc/instant-wake.md","articles":[]},{"title":"Keyboard Wake Issues","level":"4.1.4","depth":2,"path":"misc/keyboard.md","ref":"misc/keyboard.md","articles":[]}]},"previous":{"title":"Intel USB Mapping","level":"2.1","depth":1,"path":"intel-mapping/intel.md","ref":"intel-mapping/intel.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","-lunr","-search","search-plus","addcssjs","favicon-plus","anchors","github-buttons","last-modified","medium-zoom"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"last-modified":{},"output":"_book","intopic-toc":{"label":"Navigation"},"addcssjs":{"css":[],"js":[]},"medium-zoom":{},"fontsettings":{"theme":"night","family":"sans","size":2},"favicon-plus":{"appleTouchIconPrecomposed152":"","favicon":"","output":"_book"},"highlight":{},"github-edit":{"repo":"dortania/USB-Map-Guide","branch":"master"},"favicon":"/icons/favicon.ico","appleTouchIconPrecomposed152":"/icons/appleTouchIconPrecomposed152.png","github-buttons":{"buttons":[{"user":"dortania","repo":"USB-Map-Guide","type":"star","size":"large"}]},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"anchors":{},"search-plus":{}},"theme":"default","medium-zoom":{"margin":24,"background":"#363b40","scrollOffset":0},"pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sharing":{"google":false,"facebook":false,"twitter":false,"weibo":false,"all":false}},"gitbook":"*"},"file":{"path":"amd-mapping/amd.md","mtime":"2020-04-16T19:15:43.267Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-16T19:16:36.021Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-medium-zoom/medium-zoom.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-medium-zoom/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    
+
+    </body>
+</html>
+

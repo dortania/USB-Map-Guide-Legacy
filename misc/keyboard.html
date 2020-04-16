@@ -1,0 +1,422 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Keyboard Wake Issues · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-medium-zoom/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="instant-wake.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"dortania","repo":"USB-Map-Guide","type":"star","size":"large"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    USB Mapping
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../system-preparation.html">
+            
+                <a href="../system-preparation.html">
+            
+                    
+                    System Preparation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Intel Mapping</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../intel-mapping/intel.html">
+            
+                <a href="../intel-mapping/intel.html">
+            
+                    
+                    Intel USB Mapping
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">AMD/3rd Party Mapping</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../amd-mapping/amd.html">
+            
+                <a href="../amd-mapping/amd.html">
+            
+                    
+                    AMD and 3rd Party USB Mapping
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Miscellaneous Fixes</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Miscellaneous Fixes
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="power.html">
+            
+                <a href="power.html">
+            
+                    
+                    Fixing USB Power
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="shutdown.html">
+            
+                <a href="shutdown.html">
+            
+                    
+                    Fixing Shutdown/Restart
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="instant-wake.html">
+            
+                <a href="instant-wake.html">
+            
+                    
+                    GPRW/UPRW/LANC Instant Wake Patch
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.1.4" data-path="keyboard.html">
+            
+                <a href="keyboard.html">
+            
+                    
+                    Keyboard Wake Issues
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Keyboard Wake Issues</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <blockquote>
+<p><em>Last modified: Thu Apr 16 2020 19:15:43 GMT+0000 (Coordinated Universal Time)</em></p>
+</blockquote>
+<h1 id="keyboard-wake-issues"><a name="keyboard-wake-issues" class="plugin-anchor" href="#keyboard-wake-issues"><i class="fa fa-link" aria-hidden="true"></i></a>Keyboard Wake Issues</h1>
+<p>So an odd bug with Intel&apos;s 100 series chipsets and newer is that sometimes macOS requires a second keyboard press or some other wake event to power up the monitor as well, with some requiring a keypress+power button to wake. Well to fix this, we need to either:</p>
+<ul>
+<li>Disable Darkwake(not ideal, as background tasks will also turn on the display)</li>
+<li>Set <code>acpi-wake-type</code> to the USB Controller(Recommended)</li>
+<li>Create a fake ACPI Device</li>
+</ul>
+<p>You can find a great write up on the whole situation and the fixes here: <a href="https://osy.gitbook.io/hac-mini-guide/details/usb-fix" target="_blank">USB Fix</a>. </p>
+<p>It&apos;s an excellent read and highly recommend to truly understand <em>what</em> is exactly happening, and it&apos;s not like you&apos;ve done enough reading already with this guide ;p</p>
+<h4 id="method-1---add-wake-type-property-recommended"><a name="method-1---add-wake-type-property-recommended" class="plugin-anchor" href="#method-1---add-wake-type-property-recommended"><i class="fa fa-link" aria-hidden="true"></i></a>Method 1 - Add Wake Type Property (Recommended)</h4>
+<p>So the ideal method is to declare the XHCI Controller(This is our USB Controller) to be an ACPI wake device, as we don&apos;t have compatible ECs for macOS to handle proper wake calls.</p>
+<p>To start,  we&apos;ll need to grab the PciRoot of our USB Controller(we&apos;ll use <a href="https://github.com/acidanthera/gfxutil/releases" target="_blank">gfxutil</a>, Generally the names would be XHC, XHC1 and XHCI)</p>
+<p><img src="../images/post-install/usb-md/xhci-path.png" alt=""></p>
+<p>Now with the PciRoot, open your config.plist and add a new entry under DeviceProperties -&gt; Add, and add your PciRoot. Then create a child with the following attributes:</p>
+<p><code>acpi-wake-type | Data | &lt;01&gt;</code></p>
+<p><img src="../images/post-install/usb-md/deviceproperties.png" alt=""></p>
+<h4 id="method-2---create-a-fake-acpi-device"><a name="method-2---create-a-fake-acpi-device" class="plugin-anchor" href="#method-2---create-a-fake-acpi-device"><i class="fa fa-link" aria-hidden="true"></i></a>Method 2 - Create a fake ACPI Device</h4>
+<p>This method creates a fake ACPI Device that will be associated with the GPE, then add the property of <code>acpi-wake-type</code> with USBWakeFixup.kext.</p>
+<p>It&apos;s actually quite easy to setup, you&apos;ll need the following:</p>
+<ul>
+<li><a href="https://github.com/osy86/USBWakeFixup/releases" target="_blank">USBWakeFixup.kext</a><ul>
+<li>Both under EFI/OC/Kexts and your config..plist</li>
+</ul>
+</li>
+<li><a href="https://github.com/osy86/USBWakeFixup/blob/master/SSDT-USBW.dsl" target="_blank">SSDT-USBW.dsl</a></li>
+</ul>
+<p>To create the SSDT-USBW for your specific system, you&apos;re gonna need the ACPI path of your USB controller. If we look back above to the gfxutil example, we can see it also lists our ACPI path: </p>
+<ul>
+<li><code>/PC00@0/XHCI@14</code> -&gt; <code>\_SB.PC00.XHCI</code></li>
+</ul>
+<p>Now we can shove that into our SSDT:</p>
+<p><img src="../images/post-install/usb-md/usbw.png" alt=""></p>
+<p>Now with that done, you can compile and add it to your EFI and config.plist. See <a href="https://dortania.github.io/Getting-Started-With-ACPI/Manual/compile.html" target="_blank">Getting Started With ACPI</a> for more info on compiling SSDTs</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="instant-wake.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: GPRW/UPRW/LANC Instant Wake Patch">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Keyboard Wake Issues","level":"4.1.4","depth":2,"previous":{"title":"GPRW/UPRW/LANC Instant Wake Patch","level":"4.1.3","depth":2,"path":"misc/instant-wake.md","ref":"misc/instant-wake.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","-lunr","-search","search-plus","addcssjs","favicon-plus","anchors","github-buttons","last-modified","medium-zoom"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"last-modified":{},"output":"_book","intopic-toc":{"label":"Navigation"},"addcssjs":{"css":[],"js":[]},"medium-zoom":{},"fontsettings":{"theme":"night","family":"sans","size":2},"favicon-plus":{"appleTouchIconPrecomposed152":"","favicon":"","output":"_book"},"highlight":{},"github-edit":{"repo":"dortania/USB-Map-Guide","branch":"master"},"favicon":"/icons/favicon.ico","appleTouchIconPrecomposed152":"/icons/appleTouchIconPrecomposed152.png","github-buttons":{"buttons":[{"user":"dortania","repo":"USB-Map-Guide","type":"star","size":"large"}]},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"anchors":{},"search-plus":{}},"theme":"default","medium-zoom":{"margin":24,"background":"#363b40","scrollOffset":0},"pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sharing":{"google":false,"facebook":false,"twitter":false,"weibo":false,"all":false}},"gitbook":"*"},"file":{"path":"misc/keyboard.md","mtime":"2020-04-16T19:15:43.295Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-16T19:16:36.021Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-medium-zoom/medium-zoom.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-medium-zoom/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    
+
+    </body>
+</html>
+

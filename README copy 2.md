@@ -221,7 +221,7 @@ And once that's done, you'll next want to head to your config.plist and disable 
 
 ### AMD and 3rd Party USB Mapping
 
-To be written, for now see the  [AMD-USB-map.md](https://github.com/dortania/OpenCore-Desktop-Guide/blob/master/AMD/AMD-USB-map.md) for the time being.
+To be written, for now see the  [AMD-USB-map.md](https://github.com/dortania/USB-Map-Guide/blob/master/AMD/AMD-USB-map.md) for the time being.
 
 For all I care, AMD hackintoshes don't exist. Please don't make me look at another AMD DSDT please, just buy Intel
 
@@ -253,7 +253,7 @@ With Skylake and newer SMBIOS, Apple no longer provides USB power settings via, 
 * MacBookAir8,x  and newer
 * MacBookPro13,x and newer
 
-Luckily you can use a precompiled file for USBX: [SSDT-USBX](https://github.com/khronokernel/Opencore-Vanilla-Desktop-Guide/blob/master/extra-files/SSDT-USBX.aml)
+Luckily you can use a precompiled file for USBX: [SSDT-USBX](https://github.com/khronokernel/USB-Map-Guide/blob/master/extra-files/SSDT-USBX.aml)
 
 ## Fixing Shutdown/Restart
 
@@ -261,8 +261,8 @@ So an odd quirk you may run into with macOS is that when you shutdown, your PC m
 
 For this we need the following:
 
-* [FixShutdown-USB-SSDT.dsl](https://github.com/dortania/OpenCore-Desktop-Guide/blob/master/extra-files/FixShutdown-USB-SSDT.dsl)
-* [_PTS to ZPTS Patch](https://github.com/dortania/OpenCore-Desktop-Guide/blob/master/extra-files/FixShutdown-Patch.plist)
+* [FixShutdown-USB-SSDT.dsl](https://github.com/dortania/USB-Map-Guide/blob/master/extra-files/FixShutdown-USB-SSDT.dsl)
+* [_PTS to ZPTS Patch](https://github.com/dortania/USB-Map-Guide/blob/master/extra-files/FixShutdown-Patch.plist)
 * USB Controller's ACPI Path
 
 To find the USB Controller that needs fixing, search for `_PRW` in your DSDT and see what Device is mentioned within it, generally this will be something like `SB.PCI0.XHC`.
@@ -277,9 +277,9 @@ Similar idea to the "Fixing Shutdown/Restart" section, macOS will instant wake i
 
 | SSDT | ACPI Patch | Comments |
 | :--- | :--- | :--- |
-| [SSDT-GPRW](https://github.com/dortania/OpenCore-Desktop-Guide/blob/master/extra-files/SSDT-GPRW.aml) | [GPRW to XPRW Patch](https://github.com/dortania/OpenCore-Desktop-Guide/blob/master/extra-files/GPRW-Patch.plist) | Use this if you have `Method (GPRW, 2` in your ACPI |
-| [SSDT-UPRW](https://github.com/dortania/OpenCore-Desktop-Guide/blob/master/extra-files/SSDT-UPRW) | [UPRW to XPRW Patch](https://github.com/dortania/OpenCore-Desktop-Guide/blob/master/extra-files/UPRW-Patch.plist) | Use this if you have `Method (UPRW, 2` in your ACPI |
-| [SSDT-LANC](https://github.com/dortania/OpenCore-Desktop-Guide/blob/master/extra-files/SSDT-LANC.aml) | [LANC to XPRW Patch](https://github.com/dortania/OpenCore-Desktop-Guide/blob/master/extra-files/LANC-Patch.plist) | Use this if you have  `Device (LANC)` in your ACPI |
+| [SSDT-GPRW](https://github.com/dortania/USB-Map-Guide/blob/master/extra-files/SSDT-GPRW.aml) | [GPRW to XPRW Patch](https://github.com/dortania/USB-Map-Guide/blob/master/extra-files/GPRW-Patch.plist) | Use this if you have `Method (GPRW, 2` in your ACPI |
+| [SSDT-UPRW](https://github.com/dortania/USB-Map-Guide/blob/master/extra-files/SSDT-UPRW) | [UPRW to XPRW Patch](https://github.com/dortania/USB-Map-Guide/blob/master/extra-files/UPRW-Patch.plist) | Use this if you have `Method (UPRW, 2` in your ACPI |
+| [SSDT-LANC](https://github.com/dortania/USB-Map-Guide/blob/master/extra-files/SSDT-LANC.aml) | [LANC to XPRW Patch](https://github.com/dortania/USB-Map-Guide/blob/master/extra-files/LANC-Patch.plist) | Use this if you have  `Device (LANC)` in your ACPI |
 
 ACPI Patches and SSDTs courtesy of [Rehabman](https://www.tonymacx86.com/threads/guide-using-clover-to-hotpatch-acpi.200137/), 1Revenger1 and Fewtarius
 

@@ -38,18 +38,17 @@ The steps are quite simple:
 
 ## Creating the map
 
-So to start off, open [IORegistryExplorer]() and find the USB controller you'd wish to map. For controllers, they come in some variations:
+So to start off, open [IORegistryExplorer](https://github.com/toleda/audio_ALCInjection/blob/master/IORegistryExplorer_v2.1.zip) and find the USB controller you'd wish to map. For controllers, they come in some variations:
 
 * XHC
 * XHC0
 * XHC1
 * XHC2
-* XHC3
 * XHCI
 * XHCX
 * AS43
 * PTXH (Commonly associated with AMD Chipset controllers)
-
+* PXSX(This is a generic PCIe device, **double check it's a USB device**)
 
 The best way to find controllers is by searching for `XHC` and then looking at the results that come up, the parent of all the ports is the USB controller. Do note that many boards have multiple controllers but the port limit is per controller.
 
@@ -61,16 +60,21 @@ As you can see from the photo above, we're missing a shit ton of ports! Specific
 
 So how do we fix this? Well if you look in the corner you'll see the `port` value. This is going to be important to us when mapping
 
-Next, let's take a peek at our DSDT and check for our `PTXH` device:
+Next, let's take a peek at our DSDT and check for our `PTXH` device with [maciASL](https://github.com/acidanthera/MaciASL/releases):
 
-![](/images/AMD/AMD-USB-map-md/dsdt-1.png)
-![](/images/AMD/AMD-USB-map-md/dsdt-2.png)
+
+
+Top of PTXH             |  Bottom of PTXH
+:-------------------------:|:-------------------------:
+![](/images/AMD/AMD-USB-map-md/dsdt-1.png)  |   ![](/images/AMD/AMD-USB-map-md/dsdt-2.png)
+
+
 
 All of our ports are here! So why in the world is macOS hiding them? Well there's a couple of reasons but this being the main: Conflicting SMBIOS USB map
 
 Inside the `AppleUSBHostPlatformProperties.kext` you'll find the USB map for most SMBIOS, this means that that machine's USB map is forced onto your system. 
 
-Well to kick out these bad maps, we gotta make a plugin kext. For us, that's the [AMD-USB-Map.kext](https://github.com/dortania/OpenCore-Desktop-Guide/tree/master/extra-files/AMD-USB-Map.kext.zip)
+Well to kick out these bad maps, we gotta make a plugin kext. For us, that's the [AMD-USB-Map.kext](https://github.com/dortania/USB-Map-Guide/tree/master/extra-files/AMD-USB-Map.kext.zip)
 
 Now right-click and press `Show Package Contents`, then navigate to `Contents/Info.plist`
 
@@ -117,26 +121,49 @@ Now save and add this to both your kext folder and config.plist then reboot!
 Now we can finally start to slowly remove unwanted ports from the Info.plist and remove the `XhciPortLimit` quirk once you have 15 ports total or less per controller.
 
 
-## Port mapping on screwed up DSDTs
+## Port mapping on screwed up DSDTs 
 
 Something you may have noticed is that your DSDT is even missing some ports, like for example:
 
 ![AsRock B450 missing ports](/images/AMD/AMD-USB-map-md/dsdt-missing.png)
 
-In this IOReg, we're missing HS02, HS03, HS04, HS05, etc. When this happens, we actually need to outright remove all our ports from that controller in our DSDT. What this will let us do is allow macOS to build the ports itself instead of basing it off of the ACPI. Save this modified DSDT.aml and place it in your EFI/OC/ACPI folder and specify it in your config.plist -> ACPI -> Add(note that DSDT.aml must be forced to work correctly)
+In this DSDT, we're missing HS02, HS03, HS04, HS05, etc. When this happens, we actually need to outright remove all our ports from that controller in our DSDT. What this will let us do is allow macOS to build the ports itself instead of basing it off of the ACPI. Save this modified DSDT.aml and place it in your EFI/OC/ACPI folder and specify it in your config.plist -> ACPI -> Add(note that DSDT.aml must be forced to work correctly)
 
 ## Port mapping when you have multiple of the same controller
 
-This becomes a problem when we run systems with many USB controllers which all want to have the same identifier, commonly being multiple XHC0 devices or AsMedia controllers showing up as generic PXSX devices. To fix this, we'll want to make an SSDT that will rename the controller:
+This becomes a problem when we run systems with many USB controllers which all want to have the same identifier, commonly being multiple XHC0 devices or AsMedia controllers showing up as generic PXSX devices. To fix this, we have 2 options:
 
-* [SSDT-XHC2.dsl](https://github.com/dortania/OpenCore-Desktop-Guide/tree/master/extra-files/SSDT-XHC2.dsl)
+* ACPI Rename (won't be covered in this guide, see ACPI section of OpenCore's configuration.pdf)
+* SSDT Recreation
 
-What you'll want to do is find a controller you want to rename, find its full ACPI path and replace the one in the sample SSDT. In our sample, we're be renaming `PCI0.GP13.XHC0` to `XHC2` so change accordingly. You may need to include the ports from the DSDT into the SSDT
+
+### SSDT Recreation
+
+With the SSDT Recreation method, what we'll be doing is "renaming" the device but in reality creating a brand new device just for macOS that is in the exact same spot as your old USB controller.
+
+To do this, grab the following SSDT:
+
+* [SSDT-SHC0.dsl](https://github.com/dortania/USB-Map-Guide/tree/master/extra-files/SSDT-SHC0.dsl)
+
+What you'll want to do is find a controller you want to rename, find its full ACPI path and replace the one in the sample SSDT. In our sample, we're be renaming `PCI0.GP13.XHC0` to `SHC0` so change accordingly.
+
+
+![AsRock B450 missing ports](/images/AMD/AMD-USB-map-md/rename-ssdt.png)
+
+**Note**: In rare cases, macOS isn't able to properly rebuild the USB ports with the new "fake" USB controller. In these situations we need to manually add ports to it that are present in the original controller(ie. HS01, HS02, POT1, etc)
+
 
 > But how do I map a non-standard controller that shows up as PXSX?
 
-Similar idea to regular SSDT renaming except you need to actually find the controller. This becomes difficult as SSDs, network controllers, etc can also show up as PXSX. Check the ACPI-path in IOreg to find its path:
+Similar idea to regular SSDT renaming except you need to actually find the controller. This becomes difficult as SSDs, network controllers, and other generic PCIe devices can also show up as PXSX. Check the ACPI-path in IOreg to find its path:
 
 ![](/images/AMD/AMD-USB-map-md/acpi-path.png)
 
-As we can see, `IOACPIPlane:/_SB/PC00@0/RP05@1c0004/PXSX@0` would be interpreted as `_SB.PC00.RP05.PXSX`
+As we can see, `IOACPIPlane:/_SB/PC00@0/RP05@1c0004/PXSX@0` would be interpreted as `SB.PC00.RP05.PXSX`
+
+And so from the above SSDT, we change the following:
+
+* `External (_SB_.PCI0.GP13, DeviceObj)` -> `External (_SB_.PC00.RP05, DeviceObj)`
+* `External (_SB_.PCI0.GP13.XHC0, DeviceObj)` -> `External (_SB_.PC00.RP05.PXSX, DeviceObj)`
+* `Scope (\_SB.PCI0.GP13)` -> `Scope (\_SB.PC00.RP05)`
+* `Scope (XHC0)` -> `Scope (PXSX)`

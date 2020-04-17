@@ -54,7 +54,7 @@ The best way to find controllers is by searching for `XHC` and then looking at t
 
 For today's example, we'll be both adding missing ports and getting under the 15 port limit for this X399 chipset which has the identifier `PTXH`
 
-![PTXH IOReg](/images/AMD/AMD-USB-map-md/controller-name.png)
+![PTXH IOReg](/images/amd-mapping/amd-md/controller-name.png)
 
 As you can see from the photo above, we're missing a shit ton of ports! Specifically ports POT3, POT4, POT7, POT8, PO12, PO13, PO15, PO16, PO17, PO18, PO19, PO20, PO21, PO22!
 
@@ -66,7 +66,7 @@ Next, let's take a peek at our DSDT and check for our `PTXH` device with [maciAS
 
 Top of PTXH             |  Bottom of PTXH
 :-------------------------:|:-------------------------:
-![](/images/AMD/AMD-USB-map-md/dsdt-1.png)  |   ![](/images/AMD/AMD-USB-map-md/dsdt-2.png)
+![](/images/amd-mapping/amd-md/dsdt-1.png)  |   ![](/images/amd-mapping/amd-md/dsdt-2.png)
 
 
 
@@ -78,9 +78,9 @@ Well to kick out these bad maps, we gotta make a plugin kext. For us, that's the
 
 Now right-click and press `Show Package Contents`, then navigate to `Contents/Info.plist`
 
-![](/images/AMD/AMD-USB-map-md/usb-plist.png)
+![](/images/amd-mapping/amd-md/usb-plist.png)
 If the port values don't show in Xcode, right click and select `Show Raw Keys/Values`
-![](/images/AMD/AMD-USB-map-md/usb-plist-info.png)
+![](/images/amd-mapping/amd-md/usb-plist-info.png)
 
 
 So what kind of data do we shove into this plist? Well, there are a couple of sections to note:
@@ -112,7 +112,7 @@ Device (PO18)
 ```
 For us, what matters is the `Name (_ADR, 0x12) // _ADR: Address` as this tells us the location of the USB port. This value will be turned into our `port` value on the plist. Some DSDTs don't declare their USB address, for these situations we can see their IOReg properties.
 
-![](/images/AMD/AMD-USB-map-md/port-info.png)
+![](/images/amd-mapping/amd-md/port-info.png)
 
 **Reminder**: Don't drag and drop the kext, read the guide carefully. Rename `IONameMatch` value to the correct controller you're wanting to map and verify that the ports are named correctly to **your DSDT**. If you could drag and drop it and have it work for everyone there wouldn't be a guide ;p
 
@@ -125,7 +125,7 @@ Now we can finally start to slowly remove unwanted ports from the Info.plist and
 
 Something you may have noticed is that your DSDT is even missing some ports, like for example:
 
-![AsRock B450 missing ports](/images/AMD/AMD-USB-map-md/dsdt-missing.png)
+![AsRock B450 missing ports](/images/amd-mapping/amd-md/dsdt-missing.png)
 
 In this DSDT, we're missing HS02, HS03, HS04, HS05, etc. When this happens, we actually need to outright remove all our ports from that controller in our DSDT. What this will let us do is allow macOS to build the ports itself instead of basing it off of the ACPI. Save this modified DSDT.aml and place it in your EFI/OC/ACPI folder and specify it in your config.plist -> ACPI -> Add(note that DSDT.aml must be forced to work correctly)
 
@@ -148,7 +148,7 @@ To do this, grab the following SSDT:
 What you'll want to do is find a controller you want to rename, find its full ACPI path and replace the one in the sample SSDT. In our sample, we're be renaming `PCI0.GP13.XHC0` to `SHC0` so change accordingly.
 
 
-![AsRock B450 missing ports](/images/AMD/AMD-USB-map-md/rename-ssdt.png)
+![AsRock B450 missing ports](/images/amd-mapping/amd-md/rename-ssdt.png)
 
 **Note**: In rare cases, macOS isn't able to properly rebuild the USB ports with the new "fake" USB controller. In these situations we need to manually add ports to it that are present in the original controller(ie. HS01, HS02, POT1, etc)
 
@@ -157,7 +157,7 @@ What you'll want to do is find a controller you want to rename, find its full AC
 
 Similar idea to regular SSDT renaming except you need to actually find the controller. This becomes difficult as SSDs, network controllers, and other generic PCIe devices can also show up as PXSX. Check the ACPI-path in IOreg to find its path:
 
-![](/images/AMD/AMD-USB-map-md/acpi-path.png)
+![](/images/amd-mapping/amd-md/acpi-path.png)
 
 As we can see, `IOACPIPlane:/_SB/PC00@0/RP05@1c0004/PXSX@0` would be interpreted as `SB.PC00.RP05.PXSX`
 

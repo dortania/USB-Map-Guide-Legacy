@@ -54,7 +54,7 @@ And so with older SMBIOSes(one's not listed above), we need to make sure their p
 
 | Key | Type | Value |
 | :--- | :--- | :--- |
-| Comment | String | EHC2 to EH01 |
+| Comment | String | EHC2 to EH02 |
 | Count | Number | <0> |
 | Enabled | Boolean | YES |
 | Find | Data | <45484332> |

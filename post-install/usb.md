@@ -221,7 +221,7 @@ And once that's done, you'll next want to head to your config.plist and disable 
 
 ### AMD and 3rd Party USB Mapping
 
-To be written, for now see the  [AMD-USB-map.md](/amd-mapping/amd.md) for the time being.
+To be written, for now see the  [AMD-USB-map.md](/amd-mapping/AMD-USB-map.md) for the time being.
 
 For all I care, AMD hackintoshes don't exist. Please don't make me look at another AMD DSDT please, just buy Intel
 

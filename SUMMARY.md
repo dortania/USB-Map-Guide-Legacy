@@ -10,7 +10,7 @@
 
 ## AMD/3rd Party Mapping
 
-* [AMD and 3rd Party USB Mapping](/amd-mapping/amd.md)
+* [AMD and 3rd Party USB Mapping](/amd-mapping/AMD-USB-map.md)
 
 ## Miscellaneous Fixes
 

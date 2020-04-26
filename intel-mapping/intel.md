@@ -50,7 +50,7 @@ The above will set all ports listed to type 3 which is USB 3.0.
 T:9:255
 ```
 
-This will set my Bluetooth to internal, this is super important as macOS expects bluetooth to always be internal.
+This will set my Bluetooth to internal, this is super important as macOS expects Bluetooth to always be internal.
 
 ![](/images/post-install/usb-md/build-map.png)
 

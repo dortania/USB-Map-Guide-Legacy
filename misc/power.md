@@ -9,4 +9,4 @@ With Skylake and newer SMBIOS, Apple no longer provides USB power settings via I
 * MacBookAir8,x  and newer
 * MacBookPro13,x and newer
 
-Luckily you can use a precompiled file for USBX: [SSDT-USBX](https://github.com/khronokernel/USB-Map-Guide/blob/master/extra-files/SSDT-USBX.aml)
+Luckily you can use a precompiled file for USBX: [SSDT-USBX](https://github.com/dortania/USB-Map-Guide/blob/master/extra-files/SSDT-USBX.aml)

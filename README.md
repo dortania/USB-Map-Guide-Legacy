@@ -41,4 +41,8 @@ Well this gets into a fun subset of computers, the hexadecimal counting system! 
 
 And now when we take into account the quirk `XhciPortLimit`, you can see *why* data corruption can happen. As we're pushing past the 0xF limit and going into someone else's space. So avoid this quirk when possible.
 
+> What about USB hubs?
+
+USB Hubs attached to one of your USB controller's ports have a different kind of port limit. In total, a single USB port can be split into 127 ports. This includes USB hubs attached to USB hubs
+
 ## Now with the backstory done, lets head to [System Preparations](/system-preparation.md)

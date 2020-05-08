@@ -304,7 +304,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <blockquote>
-<p><em>Last modified: Sun May 03 2020 00:10:54 GMT+0000 (Coordinated Universal Time)</em></p>
+<p><em>Last modified: Fri May 08 2020 17:22:03 GMT+0000 (Coordinated Universal Time)</em></p>
 </blockquote>
 <h1 id="system-preparation"><a name="system-preparation" class="plugin-anchor" href="#system-preparation"><i class="fa fa-link" aria-hidden="true"></i></a>System Preparation</h1>
 <p>So before we can USB map, we need to set a couple things:</p>
@@ -320,12 +320,12 @@
 </li>
 <li>config.plist -&gt; ACPI -&gt; Patch -&gt; EHCI and XHCI ACPI renames</li>
 </ul>
-<p>The reason we need these ACPI renames are due to conflicting with Apple&apos;s own USB map, fun fact even Apple has to USB map as well! You can actually find Apple&apos;s USB map within IOUSBHostFamily.kext -&gt; PlugIns -&gt; AppleUSBHostPlatformProperties.kext, though newer Macs actually port map with their ACPI tables instead. </p>
-<p>SMBIOSes that do not need the ACPI renames:</p>
+<p>The reason we need these ACPI renames are due to conflicting with Apple&apos;s own USB map, fun fact even Apple has to USB map as well! You can actually find Apple&apos;s USB map within IOUSBHostFamily.kext -&gt; PlugIns -&gt; AppleUSBHostPlatformProperties.kext in Catalina, though newer Macs actually port map with their ACPI tables instead. </p>
+<p>SMBIOSes that <strong>do not</strong> need the ACPI renames:</p>
 <ul>
 <li>iMac18,x and newer</li>
 <li>MacPro7,1 and newer</li>
-<li>MacMini8,1 and newer</li>
+<li>Macmini8,1 and newer</li>
 <li>MacBook9,x  and newer</li>
 <li>MacBookAir8,x  and newer</li>
 <li>MacBookPro13,x and newer</li>
@@ -509,6 +509,38 @@
 </tbody>
 </table>
 <p>And for those worried about ACPI patches applying to other OSes, these will only be temporary and will be removed once we&apos;ve mapped our ports.</p>
+<h2 id="checking-what-renames-you-need"><a name="checking-what-renames-you-need" class="plugin-anchor" href="#checking-what-renames-you-need"><i class="fa fa-link" aria-hidden="true"></i></a>Checking what renames you need</h2>
+<p>So with renames it&apos;s pretty easy to find out, first figure out what SMBIOS you&apos;re using(can be found in your config.plist under <code>PlatformInfo -&gt; Generic -&gt; SystemProductName</code>) and match figure out whether you even need a USB map:</p>
+<p>SMBIOS needing only XHC1 rename:</p>
+<ul>
+<li>iMacPro1,1</li>
+<li>iMac17,x and older</li>
+<li>MacBookAir7,x</li>
+</ul>
+<p>SMBIOS needing XHC1 and EHC1 rename:</p>
+<ul>
+<li>MacPro6,1</li>
+<li>Macmini7,1</li>
+<li>MacBook8,x</li>
+<li>MacBookAir6,x</li>
+<li>MacBookPro12,x</li>
+</ul>
+<p>SMBIOS needing XHC1, EHC1 and EHC2 renames:</p>
+<ul>
+<li>iMac16,x and older</li>
+<li>MacPro5,1 and older</li>
+<li>Macmini6,x and older</li>
+<li>MacBookAir5,x  and older</li>
+<li>MacBookPro11,x and older</li>
+</ul>
+<p>Now that we know what renames our SMBIOS need, we can next check the names of our USB controllers. Run the following in terminal:</p>
+<pre><code>ioreg -l -p IOService -w0 | grep -i EH01
+ioreg -l -p IOService -w0 | grep -i EH02
+ioreg -l -p IOService -w0 | grep -i XHC1
+</code></pre><p>We recommend running 1 at a time as terminal may get flooded if you tried to search for all 3 at the same time, the below example shows we don&apos;t have anything named EH01 or EH02 <strong>but</strong> we do however require that XHC1 rename:</p>
+<p><img src="images/system-preperation-md/ioreg-name.png" alt=""></p>
+<p>And with that, we now add our needed ACPI renames to our config.plist -&gt; ACPI -&gt; Patch, you can find a pre-made file here(note that you&apos;ll need to enable the ones you need):</p>
+<p><a href="https://github.com/dortania/USB-Map-Guide/blob/master/extra-files/usb-rename.plist" target="_blank">usb-rename.plist</a></p>
 <h1 id="parting-ways"><a name="parting-ways" class="plugin-anchor" href="#parting-ways"><i class="fa fa-link" aria-hidden="true"></i></a>Parting ways</h1>
 <p>But now we must part into 2 sections, depending on which hardware you have:</p>
 <ul>
@@ -558,7 +590,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"System Preparation","level":"1.2","depth":1,"next":{"title":"Intel USB Mapping","level":"2.1","depth":1,"path":"intel-mapping/intel.md","ref":"intel-mapping/intel.md","articles":[]},"previous":{"title":"USB Mapping","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","-lunr","-search","search-plus","addcssjs","favicon-plus","anchors","github-buttons","last-modified","medium-zoom"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"last-modified":{},"output":"_book","intopic-toc":{"label":"Navigation"},"addcssjs":{"css":[],"js":[]},"medium-zoom":{},"fontsettings":{"theme":"night","family":"sans","size":2},"favicon-plus":{"appleTouchIconPrecomposed152":"","favicon":"","output":"_book"},"highlight":{},"github-edit":{"repo":"dortania/USB-Map-Guide","branch":"master"},"favicon":"/icons/favicon.ico","appleTouchIconPrecomposed152":"/icons/appleTouchIconPrecomposed152.png","github-buttons":{"buttons":[{"user":"dortania","repo":"USB-Map-Guide","type":"star","size":"large"}]},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"anchors":{},"search-plus":{}},"theme":"default","medium-zoom":{"margin":24,"background":"#363b40","scrollOffset":0},"pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sharing":{"google":false,"facebook":false,"twitter":false,"weibo":false,"all":false}},"gitbook":"*"},"file":{"path":"system-preparation.md","mtime":"2020-05-03T00:10:54.788Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-03T00:11:47.432Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"System Preparation","level":"1.2","depth":1,"next":{"title":"Intel USB Mapping","level":"2.1","depth":1,"path":"intel-mapping/intel.md","ref":"intel-mapping/intel.md","articles":[]},"previous":{"title":"USB Mapping","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","-lunr","-search","search-plus","addcssjs","favicon-plus","anchors","github-buttons","last-modified","medium-zoom"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"last-modified":{},"output":"_book","intopic-toc":{"label":"Navigation"},"addcssjs":{"css":[],"js":[]},"medium-zoom":{},"fontsettings":{"theme":"night","family":"sans","size":2},"favicon-plus":{"appleTouchIconPrecomposed152":"","favicon":"","output":"_book"},"highlight":{},"github-edit":{"repo":"dortania/USB-Map-Guide","branch":"master"},"favicon":"/icons/favicon.ico","appleTouchIconPrecomposed152":"/icons/appleTouchIconPrecomposed152.png","github-buttons":{"buttons":[{"user":"dortania","repo":"USB-Map-Guide","type":"star","size":"large"}]},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"anchors":{},"search-plus":{}},"theme":"default","medium-zoom":{"margin":24,"background":"#363b40","scrollOffset":0},"pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sharing":{"google":false,"facebook":false,"twitter":false,"weibo":false,"all":false}},"gitbook":"*"},"file":{"path":"system-preparation.md","mtime":"2020-05-08T17:22:03.021Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-08T17:22:55.008Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

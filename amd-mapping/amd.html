@@ -304,7 +304,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <blockquote>
-<p><em>Last modified: Fri May 08 2020 17:22:02 GMT+0000 (Coordinated Universal Time)</em></p>
+<p><em>Last modified: Fri May 08 2020 17:36:40 GMT+0000 (Coordinated Universal Time)</em></p>
 </blockquote>
 <h1 id="usb-mapping"><a name="usb-mapping" class="plugin-anchor" href="#usb-mapping"><i class="fa fa-link" aria-hidden="true"></i></a>USB Mapping</h1>
 <p>Table of Contents:</p>
@@ -314,7 +314,7 @@
 <li><a href="amd.html#port-mapping-on-screwed-up-dsdts">Port mapping on screwed up DSDTs</a></li>
 <li><a href="amd.html#port-mapping-when-you-have-multiple-of-the-same-controller">Port mapping when you have multiple of the same controller</a></li>
 </ul>
-<p>So with the prerequisites out of the way, we can finally get to the meat of this guide. And now we get to finally read one of my favorite books before I go to bed each night: <a href="https://uefi.org/sites/default/files/resources/ACPI_6_3_final_Jan30.pdf" target="_blank">The Advanced Configuration and Power Interface (ACPI) Specification!</a> </p>
+<p>So with the prerequisites out of the way, we can finally get to the meat of this guide. And now we get to finally read one of my favorite books before I go to bed each night: <a href="https://uefi.org/sites/default/files/resources/ACPI_6_3_final_Jan30.pdf" target="_blank">The Advanced Configuration and Power Interface (ACPI) Specification!</a></p>
 <p>Now if you haven&apos;t read through this before(which I highly recommend you do, it&apos;s a thrilling tale), I&apos;ll point you to the meat of the USB situation:</p>
 <ul>
 <li>Section 9.14: _UPC (USB Port Capabilities)</li>
@@ -406,7 +406,7 @@
 </tbody>
 </table>
 <p>All of our ports are here! So why in the world is macOS hiding them? Well there&apos;s a couple of reasons but this being the main: Conflicting SMBIOS USB map</p>
-<p>Inside the <code>AppleUSBHostPlatformProperties.kext</code> you&apos;ll find the USB map for most SMBIOS, this means that that machine&apos;s USB map is forced onto your system. </p>
+<p>Inside the <code>AppleUSBHostPlatformProperties.kext</code> you&apos;ll find the USB map for most SMBIOS, this means that that machine&apos;s USB map is forced onto your system.</p>
 <p>Well to kick out these bad maps, we gotta make a plugin kext. For us, that&apos;s the <a href="https://github.com/dortania/USB-Map-Guide/tree/master/extra-files/AMD-USB-Map.kext.zip" target="_blank">AMD-USB-Map.kext</a></p>
 <p>Now right-click and press <code>Show Package Contents</code>, then navigate to <code>Contents/Info.plist</code></p>
 <p><img src="../images/amd-mapping/amd-md/usb-plist.png" alt="">
@@ -423,16 +423,16 @@ If the port values don&apos;t show in Xcode, right click and select <code>Show R
 <blockquote>
 <p>How do I know which ports are 2.0 and which are 3.0?</p>
 </blockquote>
-<p>Well, the easiest way is grabbing a USB 2.0 and USB 3.0 device, then write down which ports are are what type from observing IOReg. </p>
+<p>Well, the easiest way is grabbing a USB 2.0 and USB 3.0 device, then write down which ports are are what type from observing IOReg.</p>
 <p>Now, let&apos;s take this section:</p>
 <pre><code>Device (PO18)
    {
    Name (_ADR, 0x12) // _ADR: Address
    Name (_UPC, Package (0x04) // _UPC: USB Port Capabilities
       {
-         Zero, 
-         0xFF, 
-         Zero, 
+         Zero,
+         0xFF,
+         Zero,
          Zero
       })
    }
@@ -516,7 +516,7 @@ If the port values don&apos;t show in Xcode, right click and select <code>Show R
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"AMD and 3rd Party USB Mapping","level":"3.1","depth":1,"next":{"title":"Miscellaneous Fixes","level":"4.1","depth":1,"path":"misc/README.md","ref":"misc/README.md","articles":[{"title":"Fixing USB Power","level":"4.1.1","depth":2,"path":"misc/power.md","ref":"misc/power.md","articles":[]},{"title":"Fixing Shutdown/Restart","level":"4.1.2","depth":2,"path":"misc/shutdown.md","ref":"misc/shutdown.md","articles":[]},{"title":"GPRW/UPRW/LANC Instant Wake Patch","level":"4.1.3","depth":2,"path":"misc/instant-wake.md","ref":"misc/instant-wake.md","articles":[]},{"title":"Keyboard Wake Issues","level":"4.1.4","depth":2,"path":"misc/keyboard.md","ref":"misc/keyboard.md","articles":[]}]},"previous":{"title":"Intel USB Mapping","level":"2.1","depth":1,"path":"intel-mapping/intel.md","ref":"intel-mapping/intel.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","-lunr","-search","search-plus","addcssjs","favicon-plus","anchors","github-buttons","last-modified","medium-zoom"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"last-modified":{},"output":"_book","intopic-toc":{"label":"Navigation"},"addcssjs":{"css":[],"js":[]},"medium-zoom":{},"fontsettings":{"theme":"night","family":"sans","size":2},"favicon-plus":{"appleTouchIconPrecomposed152":"","favicon":"","output":"_book"},"highlight":{},"github-edit":{"repo":"dortania/USB-Map-Guide","branch":"master"},"favicon":"/icons/favicon.ico","appleTouchIconPrecomposed152":"/icons/appleTouchIconPrecomposed152.png","github-buttons":{"buttons":[{"user":"dortania","repo":"USB-Map-Guide","type":"star","size":"large"}]},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"anchors":{},"search-plus":{}},"theme":"default","medium-zoom":{"margin":24,"background":"#363b40","scrollOffset":0},"pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sharing":{"google":false,"facebook":false,"twitter":false,"weibo":false,"all":false}},"gitbook":"*"},"file":{"path":"amd-mapping/amd.md","mtime":"2020-05-08T17:22:02.929Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-08T17:22:55.008Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"AMD and 3rd Party USB Mapping","level":"3.1","depth":1,"next":{"title":"Miscellaneous Fixes","level":"4.1","depth":1,"path":"misc/README.md","ref":"misc/README.md","articles":[{"title":"Fixing USB Power","level":"4.1.1","depth":2,"path":"misc/power.md","ref":"misc/power.md","articles":[]},{"title":"Fixing Shutdown/Restart","level":"4.1.2","depth":2,"path":"misc/shutdown.md","ref":"misc/shutdown.md","articles":[]},{"title":"GPRW/UPRW/LANC Instant Wake Patch","level":"4.1.3","depth":2,"path":"misc/instant-wake.md","ref":"misc/instant-wake.md","articles":[]},{"title":"Keyboard Wake Issues","level":"4.1.4","depth":2,"path":"misc/keyboard.md","ref":"misc/keyboard.md","articles":[]}]},"previous":{"title":"Intel USB Mapping","level":"2.1","depth":1,"path":"intel-mapping/intel.md","ref":"intel-mapping/intel.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","-lunr","-search","search-plus","addcssjs","favicon-plus","anchors","github-buttons","last-modified","medium-zoom"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"last-modified":{},"output":"_book","intopic-toc":{"label":"Navigation"},"addcssjs":{"css":[],"js":[]},"medium-zoom":{},"fontsettings":{"theme":"night","family":"sans","size":2},"favicon-plus":{"appleTouchIconPrecomposed152":"","favicon":"","output":"_book"},"highlight":{},"github-edit":{"repo":"dortania/USB-Map-Guide","branch":"master"},"favicon":"/icons/favicon.ico","appleTouchIconPrecomposed152":"/icons/appleTouchIconPrecomposed152.png","github-buttons":{"buttons":[{"user":"dortania","repo":"USB-Map-Guide","type":"star","size":"large"}]},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"anchors":{},"search-plus":{}},"theme":"default","medium-zoom":{"margin":24,"background":"#363b40","scrollOffset":0},"pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sharing":{"google":false,"facebook":false,"twitter":false,"weibo":false,"all":false}},"gitbook":"*"},"file":{"path":"amd-mapping/amd.md","mtime":"2020-05-08T17:36:40.215Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-08T17:37:36.698Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

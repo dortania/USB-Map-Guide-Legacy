@@ -101,8 +101,8 @@ SMBIOS needing XHC1, EHC1 and EHC2 renames:
 Now that we know what renames our SMBIOS need, we can next check the names of our USB controllers. Run the following in terminal:
 
 ```
-ioreg -l -p IOService -w0 | grep -i EH01
-ioreg -l -p IOService -w0 | grep -i EH02
+ioreg -l -p IOService -w0 | grep -i EHC1
+ioreg -l -p IOService -w0 | grep -i EHC2
 ioreg -l -p IOService -w0 | grep -i XHC1
 ```
 

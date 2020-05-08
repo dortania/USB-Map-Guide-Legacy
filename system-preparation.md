@@ -1,15 +1,21 @@
 # System Preparation
 
+Table of Contents:
+
+* [System Preparation](#system-preparation)
+* [Checking what renames you need](#checking-what-renames-you-need)
+* [Parting ways](#parting-ways)
+
 So before we can USB map, we need to set a couple things:
 
 * [USBInjectAll](https://bitbucket.org/RehabMan/os-x-usb-inject-all/downloads/) under both EFI/OC/Kexts and config.plist -> Kernel -> Add
-   * We need this kext to make sure any ports not defined in ACPI will still show up in macOS, note that this *shouldn't* be required on Skylake and newer as the USB ports are defined within ACPI
-   * Note that this **does not work on AMD**
+  * We need this kext to make sure any ports not defined in ACPI will still show up in macOS, note that this *shouldn't* be required on Skylake and newer as the USB ports are defined within ACPI
+  * Note that this **does not work on AMD**
 * config.plist -> Kernel -> Quirks -> XhciPortLimit -> True
-   * So we can temporally get around the 15 port limit to map our ports
+  * So we can temporally get around the 15 port limit to map our ports
 * config.plist -> ACPI -> Patch -> EHCI and XHCI ACPI renames
 
-The reason we need these ACPI renames are due to conflicting with Apple's own USB map, fun fact even Apple has to USB map as well! You can actually find Apple's USB map within IOUSBHostFamily.kext -> PlugIns -> AppleUSBHostPlatformProperties.kext in Catalina, though newer Macs actually port map with their ACPI tables instead. 
+The reason we need these ACPI renames are due to conflicting with Apple's own USB map, fun fact even Apple has to USB map as well! You can actually find Apple's USB map within IOUSBHostFamily.kext -> PlugIns -> AppleUSBHostPlatformProperties.kext in Catalina, though newer Macs actually port map with their ACPI tables instead.
 
 SMBIOSes that **do not** need the ACPI renames:
 
@@ -91,7 +97,6 @@ SMBIOS needing XHC1, EHC1 and EHC2 renames:
 * Macmini6,x and older
 * MacBookAir5,x  and older
 * MacBookPro11,x and older
-
 
 Now that we know what renames our SMBIOS need, we can next check the names of our USB controllers. Run the following in terminal:
 

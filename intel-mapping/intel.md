@@ -5,7 +5,7 @@ Table of Contents:
 * [Intel USB Mapping](/intel-mapping/intel.md#intel-usb-mapping)
 * [Removing ACPI Renames](/intel-mapping/intel.md#removing-acpi-renames)
 
-So with the prerequisites out of the way, we can finally get to the meat of this guide. And now we get to finally read one of my favorite books before I go to bed each night: [The Advanced Configuration and Power Interface (ACPI) Specification!](https://uefi.org/sites/default/files/resources/ACPI_6_3_final_Jan30.pdf) 
+So with the prerequisites out of the way, we can finally get to the meat of this guide. And now we get to finally read one of my favorite books before I go to bed each night: [The Advanced Configuration and Power Interface (ACPI) Specification!](https://uefi.org/sites/default/files/resources/ACPI_6_3_final_Jan30.pdf)
 
 Now if you haven't read through this before(which I highly recommend you do, it's a thrilling tale), I'll point you to the meat of the USB situation:
 
@@ -21,7 +21,6 @@ Here we're greeted with all the possible USB ports in ACPI:
 | 9 | Type C connector - USB 2.0 and USB 3.0 with Switch | Flipping the device **does not** change the ACPI port |
 | 10 | Type C connector - USB 2.0 and USB 3.0 without Switch | Flipping the device **does** change the ACPI port. generally seen on 3.1/2 motherboard headers |
 | 255 | Proprietary connector | For Internal USB ports like Bluetooth |
-
 
 ### Intel USB Mapping
 
@@ -54,7 +53,7 @@ This will set my Bluetooth to internal, this is super important as macOS expects
 
 ![](/images/post-install/usb-md/build-map.png)
 
-Now we can select `K. Build USBMap.kext` and let it build our kext for us. 
+Now we can select `K. Build USBMap.kext` and let it build our kext for us.
 
 **Note**: Do note use either the SSDT-UIAC.aml **or** USBInjectAll with the USBmap.kext. This kext we just made should be used by itself with no other USB kexts besides XhciUnsupported if your system needs it. Reason for this is USBInjectAll is no longer being maintained(rest in peace Rehabman) and the USBmap.kext version is how real Macs USB map as well so as close to "Apple Like" as possible to fit the OpenCore mood.
 
@@ -64,7 +63,7 @@ Now reboot and run USBmap again, you should see a lot less ports in your map:
 
 #### Removing ACPI Renames
 
-Now once you've mapped your USB ports, we can finally remove those pesky ACPI renames. USBmap.command will have made the kext with the renamed controllers so we're going to have to change them back to the proper names to avoid any headaches when booting Windows or Linux. 
+Now once you've mapped your USB ports, we can finally remove those pesky ACPI renames. USBmap.command will have made the kext with the renamed controllers so we're going to have to change them back to the proper names to avoid any headaches when booting Windows or Linux.
 
 To start, right click the kext and select `Show Package Contents`, then head to `Contents -> Info.plist`
 

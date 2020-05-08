@@ -7,7 +7,7 @@ Table of Contents:
 * [Port mapping on screwed up DSDTs](/amd-mapping/amd.md#port-mapping-on-screwed-up-dsdts)
 * [Port mapping when you have multiple of the same controller](/amd-mapping/amd.md#port-mapping-when-you-have-multiple-of-the-same-controller)
 
-So with the prerequisites out of the way, we can finally get to the meat of this guide. And now we get to finally read one of my favorite books before I go to bed each night: [The Advanced Configuration and Power Interface (ACPI) Specification!](https://uefi.org/sites/default/files/resources/ACPI_6_3_final_Jan30.pdf) 
+So with the prerequisites out of the way, we can finally get to the meat of this guide. And now we get to finally read one of my favorite books before I go to bed each night: [The Advanced Configuration and Power Interface (ACPI) Specification!](https://uefi.org/sites/default/files/resources/ACPI_6_3_final_Jan30.pdf)
 
 Now if you haven't read through this before(which I highly recommend you do, it's a thrilling tale), I'll point you to the meat of the USB situation:
 
@@ -27,6 +27,7 @@ Here we're greeted with all the possible USB ports in ACPI:
 ## AMD and 3rd Party USB Mapping
 
 The steps are quite simple:
+
 * Read this guide
 * Cry a bit
 * Cry some more
@@ -34,7 +35,6 @@ The steps are quite simple:
 * Return said hardware
 * Gather courage to USB map on AMD
 * Read the rest of the guide *again* and actually USB map
-
 
 ## Creating the map
 
@@ -62,17 +62,13 @@ So how do we fix this? Well if you look in the corner you'll see the `port` valu
 
 Next, let's take a peek at our DSDT and check for our `PTXH` device with [maciASL](https://github.com/acidanthera/MaciASL/releases):
 
-
-
 Top of PTXH             |  Bottom of PTXH
 :-------------------------:|:-------------------------:
 ![](/images/amd-mapping/amd-md/dsdt-1.png)  |   ![](/images/amd-mapping/amd-md/dsdt-2.png)
 
-
-
 All of our ports are here! So why in the world is macOS hiding them? Well there's a couple of reasons but this being the main: Conflicting SMBIOS USB map
 
-Inside the `AppleUSBHostPlatformProperties.kext` you'll find the USB map for most SMBIOS, this means that that machine's USB map is forced onto your system. 
+Inside the `AppleUSBHostPlatformProperties.kext` you'll find the USB map for most SMBIOS, this means that that machine's USB map is forced onto your system.
 
 Well to kick out these bad maps, we gotta make a plugin kext. For us, that's the [AMD-USB-Map.kext](https://github.com/dortania/USB-Map-Guide/tree/master/extra-files/AMD-USB-Map.kext.zip)
 
@@ -81,7 +77,6 @@ Now right-click and press `Show Package Contents`, then navigate to `Contents/In
 ![](/images/amd-mapping/amd-md/usb-plist.png)
 If the port values don't show in Xcode, right click and select `Show Raw Keys/Values`
 ![](/images/amd-mapping/amd-md/usb-plist-info.png)
-
 
 So what kind of data do we shove into this plist? Well, there are a couple of sections to note:
 
@@ -93,7 +88,7 @@ So what kind of data do we shove into this plist? Well, there are a couple of se
 
 > How do I know which ports are 2.0 and which are 3.0?
 
-Well, the easiest way is grabbing a USB 2.0 and USB 3.0 device, then write down which ports are are what type from observing IOReg. 
+Well, the easiest way is grabbing a USB 2.0 and USB 3.0 device, then write down which ports are are what type from observing IOReg.
 
 Now, let's take this section:
 
@@ -103,13 +98,14 @@ Device (PO18)
    Name (_ADR, 0x12) // _ADR: Address
    Name (_UPC, Package (0x04) // _UPC: USB Port Capabilities
       {
-         Zero, 
-         0xFF, 
-         Zero, 
+         Zero,
+         0xFF,
+         Zero,
          Zero
       })
    }
 ```
+
 For us, what matters is the `Name (_ADR, 0x12) // _ADR: Address` as this tells us the location of the USB port. This value will be turned into our `port` value on the plist. Some DSDTs don't declare their USB address, for these situations we can see their IOReg properties.
 
 ![](/images/amd-mapping/amd-md/port-info.png)
@@ -120,8 +116,7 @@ Now save and add this to both your kext folder and config.plist then reboot!
 
 Now we can finally start to slowly remove unwanted ports from the Info.plist and remove the `XhciPortLimit` quirk once you have 15 ports total or less per controller.
 
-
-## Port mapping on screwed up DSDTs 
+## Port mapping on screwed up DSDTs
 
 Something you may have noticed is that your DSDT is even missing some ports, like for example:
 
@@ -136,7 +131,6 @@ This becomes a problem when we run systems with many USB controllers which all w
 * ACPI Rename (won't be covered in this guide, see ACPI section of OpenCore's configuration.pdf)
 * SSDT Recreation
 
-
 ### SSDT Recreation
 
 With the SSDT Recreation method, what we'll be doing is "renaming" the device but in reality creating a brand new device just for macOS that is in the exact same spot as your old USB controller.
@@ -147,11 +141,9 @@ To do this, grab the following SSDT:
 
 What you'll want to do is find a controller you want to rename, find its full ACPI path and replace the one in the sample SSDT. In our sample, we're be renaming `PCI0.GP13.XHC0` to `SHC0` so change accordingly.
 
-
 ![AsRock B450 missing ports](/images/amd-mapping/amd-md/rename-ssdt.png)
 
 **Note**: In rare cases, macOS isn't able to properly rebuild the USB ports with the new "fake" USB controller. In these situations we need to manually add ports to it that are present in the original controller(ie. HS01, HS02, POT1, etc)
-
 
 > But how do I map a non-standard controller that shows up as PXSX?
 

@@ -6,7 +6,7 @@ So an odd bug with Intel's 100 series chipsets and newer is that sometimes macOS
 * Set `acpi-wake-type` to the USB Controller(Recommended)
 * Create a fake ACPI Device
 
-You can find a great write up on the whole situation and the fixes here: [USB Fix](https://osy.gitbook.io/hac-mini-guide/details/usb-fix). 
+You can find a great write up on the whole situation and the fixes here: [USB Fix](https://osy.gitbook.io/hac-mini-guide/details/usb-fix).
 
 It's an excellent read and highly recommend to truly understand *what* is exactly happening, and it's not like you've done enough reading already with this guide ;p
 
@@ -20,10 +20,9 @@ To start,  we'll need to grab the PciRoot of our USB Controller(we'll use [gfxut
 
 Now with the PciRoot, open your config.plist and add a new entry under DeviceProperties -> Add, and add your PciRoot. Then create a child with the following attributes:
 
-`acpi-wake-type | Data | <01> `
+`acpi-wake-type | Data | <01>`
 
 ![](/images/post-install/usb-md/deviceproperties.png)
-
 
 #### Method 2 - Create a fake ACPI Device
 
@@ -32,10 +31,10 @@ This method creates a fake ACPI Device that will be associated with the GPE, the
 It's actually quite easy to setup, you'll need the following:
 
 * [USBWakeFixup.kext](https://github.com/osy86/USBWakeFixup/releases)
-   * Both under EFI/OC/Kexts and your config..plist
+  * Both under EFI/OC/Kexts and your config..plist
 * [SSDT-USBW.dsl](https://github.com/osy86/USBWakeFixup/blob/master/SSDT-USBW.dsl)
 
-To create the SSDT-USBW for your specific system, you're gonna need the ACPI path of your USB controller. If we look back above to the gfxutil example, we can see it also lists our ACPI path: 
+To create the SSDT-USBW for your specific system, you're gonna need the ACPI path of your USB controller. If we look back above to the gfxutil example, we can see it also lists our ACPI path:
 
 * `/PC00@0/XHCI@14` -> `\_SB.PC00.XHCI`
 
@@ -44,4 +43,3 @@ Now we can shove that into our SSDT:
 ![](/images/post-install/usb-md/usbw.png)
 
 Now with that done, you can compile and add it to your EFI and config.plist. See [Getting Started With ACPI](https://dortania.github.io/Getting-Started-With-ACPI/Manual/compile.html) for more info on compiling SSDTs
-

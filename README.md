@@ -1,4 +1,4 @@
-# Why should you USB map?
+# Why should you USB map
 
 So the process of USB mapping is defining your ports to macOS and telling it what kind they are, the reasons we want to do this are:
 

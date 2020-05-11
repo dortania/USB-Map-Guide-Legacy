@@ -112,7 +112,7 @@ We recommend running 1 at a time as terminal may get flooded if you tried to sea
 
 And with that, we now add our needed ACPI renames to our config.plist -> ACPI -> Patch, you can find a pre-made file here(note that you'll need to enable the ones you need):
 
-[usb-rename.plist](https://github.com/dortania/USB-Map-Guide/blob/master/extra-files/usb-rename.plist)
+* **[usb-rename.plist](https://github.com/dortania/USB-Map-Guide/blob/master/extra-files/usb-rename.plist)**
 
 # Parting ways
 

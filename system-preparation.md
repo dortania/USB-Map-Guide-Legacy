@@ -8,7 +8,7 @@ Table of Contents:
 
 So before we can USB map, we need to set a couple things:
 
-* [USBInjectAll](https://bitbucket.org/RehabMan/os-x-usb-inject-all/downloads/) under both EFI/OC/Kexts and config.plist -> Kernel -> Add
+* [USBInjectAll](https://github.com/Sniki/OS-X-USB-Inject-All/releases) under both EFI/OC/Kexts and config.plist -> Kernel -> Add
   * We need this kext to make sure any ports not defined in ACPI will still show up in macOS, note that this *shouldn't* be required on Skylake and newer as the USB ports are defined within ACPI
   * Note that this **does not work on AMD**
 * config.plist -> Kernel -> Quirks -> XhciPortLimit -> True

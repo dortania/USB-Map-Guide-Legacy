@@ -304,7 +304,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <blockquote>
-<p><em>Last modified: Sun May 24 2020 18:22:20 GMT+0000 (Coordinated Universal Time)</em></p>
+<p><em>Last modified: Tue May 26 2020 17:03:38 GMT+0000 (Coordinated Universal Time)</em></p>
 </blockquote>
 <h1 id="system-preparation"><a name="system-preparation" class="plugin-anchor" href="#system-preparation"><i class="fa fa-link" aria-hidden="true"></i></a>System Preparation</h1>
 <p>Table of Contents:</p>
@@ -544,7 +544,20 @@
 ioreg -l -p IOService -w0 | grep -i EHC2
 ioreg -l -p IOService -w0 | grep -i XHC1
 </code></pre><p>We recommend running 1 at a time as terminal may get flooded if you tried to search for all 3 at the same time, the below example shows we don&apos;t have anything named EH01 or EH02 <strong>but</strong> we do however require that XHC1 rename:</p>
-<p><img src="images/system-preperation-md/ioreg-name.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Rename needed</th>
+<th style="text-align:center">Rename <strong>NOT</strong> needed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="images/system-preperation-md/ioreg-name.png" alt=""></td>
+<td style="text-align:center"><img src="images/system-preperation-md/no-rename-needed.png" alt=""></td>
+</tr>
+</tbody>
+</table>
 <p>And with that, we now add our needed ACPI renames to our config.plist -&gt; ACPI -&gt; Patch, you can find a pre-made file here(note that you&apos;ll need to enable the ones you need):</p>
 <ul>
 <li><strong><a href="https://github.com/dortania/USB-Map-Guide/blob/master/extra-files/usb-rename.plist" target="_blank">usb-rename.plist</a></strong></li>
@@ -598,7 +611,7 @@ ioreg -l -p IOService -w0 | grep -i XHC1
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"System Preparation","level":"1.2","depth":1,"next":{"title":"Intel USB Mapping","level":"2.1","depth":1,"path":"intel-mapping/intel.md","ref":"intel-mapping/intel.md","articles":[]},"previous":{"title":"USB Mapping","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","-lunr","-search","search-plus","addcssjs","favicon-plus","anchors","github-buttons","last-modified","medium-zoom"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"last-modified":{},"output":"_book","intopic-toc":{"label":"Navigation"},"addcssjs":{"css":[],"js":[]},"medium-zoom":{},"fontsettings":{"theme":"night","family":"sans","size":2},"favicon-plus":{"appleTouchIconPrecomposed152":"","favicon":"","output":"_book"},"highlight":{},"github-edit":{"repo":"dortania/USB-Map-Guide","branch":"master"},"favicon":"/icons/favicon.ico","appleTouchIconPrecomposed152":"/icons/appleTouchIconPrecomposed152.png","github-buttons":{"buttons":[{"user":"dortania","repo":"USB-Map-Guide","type":"star","size":"large"}]},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"anchors":{},"search-plus":{}},"theme":"default","medium-zoom":{"margin":24,"background":"#363b40","scrollOffset":0},"pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sharing":{"google":false,"facebook":false,"twitter":false,"weibo":false,"all":false}},"gitbook":"*"},"file":{"path":"system-preparation.md","mtime":"2020-05-24T18:22:20.908Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-24T18:23:14.682Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"System Preparation","level":"1.2","depth":1,"next":{"title":"Intel USB Mapping","level":"2.1","depth":1,"path":"intel-mapping/intel.md","ref":"intel-mapping/intel.md","articles":[]},"previous":{"title":"USB Mapping","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","-lunr","-search","search-plus","addcssjs","favicon-plus","anchors","github-buttons","last-modified","medium-zoom"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"last-modified":{},"output":"_book","intopic-toc":{"label":"Navigation"},"addcssjs":{"css":[],"js":[]},"medium-zoom":{},"fontsettings":{"theme":"night","family":"sans","size":2},"favicon-plus":{"appleTouchIconPrecomposed152":"","favicon":"","output":"_book"},"highlight":{},"github-edit":{"repo":"dortania/USB-Map-Guide","branch":"master"},"favicon":"/icons/favicon.ico","appleTouchIconPrecomposed152":"/icons/appleTouchIconPrecomposed152.png","github-buttons":{"buttons":[{"user":"dortania","repo":"USB-Map-Guide","type":"star","size":"large"}]},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"anchors":{},"search-plus":{}},"theme":"default","medium-zoom":{"margin":24,"background":"#363b40","scrollOffset":0},"pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sharing":{"google":false,"facebook":false,"twitter":false,"weibo":false,"all":false}},"gitbook":"*"},"file":{"path":"system-preparation.md","mtime":"2020-05-26T17:03:38.160Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-26T17:04:31.997Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

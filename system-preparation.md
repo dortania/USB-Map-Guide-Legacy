@@ -108,7 +108,9 @@ ioreg -l -p IOService -w0 | grep -i XHC1
 
 We recommend running 1 at a time as terminal may get flooded if you tried to search for all 3 at the same time, the below example shows we don't have anything named EH01 or EH02 **but** we do however require that XHC1 rename:
 
-![](/images/system-preperation-md/ioreg-name.png)
+Rename needed    |  Rename **NOT** needed
+:-------------------------:|:-------------------------:
+![](/images/system-preperation-md/ioreg-name.png)  |  ![](/images/system-preperation-md/no-rename-needed.png)
 
 And with that, we now add our needed ACPI renames to our config.plist -> ACPI -> Patch, you can find a pre-made file here(note that you'll need to enable the ones you need):
 

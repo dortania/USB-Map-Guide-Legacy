@@ -21,7 +21,7 @@ Now lets look at a diagram of a USB port to better understand this:
 
 ![Image from usb3.com](/images/post-install/usb-md/usb-3.png)
 
-As you can see, the bottom 4 ports are dedicated to USB 2.0 and when the extra 5 ports above are recognized the device will switch to a USB 3.0 mode.
+As you can see, the bottom 4 pins are dedicated to USB 2.0 and when the extra 5 pins above are recognized the device will switch to a USB 3.0 mode.
 
 Now with the basic understanding out of the way, we now have to talk about the dreadful 15 port limit.
 

@@ -55,7 +55,7 @@ This will set my Bluetooth to internal, this is super important as macOS expects
 
 Now we can select `K. Build USBMap.kext` and let it build our kext for us.
 
-**Note**: Do note use either the SSDT-UIAC.aml **or** USBInjectAll with the USBmap.kext. This kext we just made should be used by itself with no other USB kexts besides XhciUnsupported if your system needs it. Reason for this is USBInjectAll is no longer being maintained and the USBmap.kext version is how real Macs USB map as well so as close to "Apple Like" as possible to fit the OpenCore mood.
+**Note**: Do not use either the SSDT-UIAC.aml **or** USBInjectAll with the USBmap.kext. This kext we just made should be used by itself with no other USB kexts besides XhciUnsupported if your system needs it. Reason for this is USBInjectAll is no longer being maintained and the USBmap.kext version is how real Macs USB map as well so as close to "Apple Like" as possible to fit the OpenCore mood.
 
 Now reboot and run USBmap again, you should see a lot less ports in your map:
 

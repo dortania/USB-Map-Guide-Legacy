@@ -65,6 +65,8 @@ Now reboot and run USBmap again, you should see a lot less ports in your map:
 
 Now once you've mapped your USB ports, we can finally remove those pesky ACPI renames. USBmap.command will have made the kext with the renamed controllers so we're going to have to change them back to the proper names to avoid any headaches when booting Windows or Linux.
 
+* **Note**: In macOS Catalina 10.15, overriding Apple's port maps can fail for some users. In these situations, you will need to remove your ACPI renames.
+
 To start, right click the kext and select `Show Package Contents`, then head to `Contents -> Info.plist`
 
 ![](/images/post-install/usb-md/remove-rename.png)

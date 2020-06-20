@@ -5,7 +5,7 @@ Similar idea to the "Fixing Shutdown/Restart" section, macOS will instant wake i
 Best way to check:
 
 ```
-pmset -g log | grep -e "Wake.*due to "
+pmset -g log | grep -e "Sleep.*due to" -e "Wake.*due to"
 ```
 
 And generally you'll get results like these:
